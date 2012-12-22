@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-from distutils.core import setup
+from setuptools import setup
 
 version = open('VERSION', 'r').read().strip()
 
@@ -10,13 +10,20 @@ setup(name='TileStache',
       author='Michal Migurski',
       author_email='mike@stamen.com',
       url='http://tilestache.org',
-      requires=['ModestMaps (>=1.3.0)','simplejson','PIL'],
+      install_requires=['ModestMaps>=1.3.0',
+                        'simplejson',
+                        'PIL'],
       packages=['TileStache',
                 'TileStache.Vector',
                 'TileStache.Goodies',
                 'TileStache.Goodies.Caches',
                 'TileStache.Goodies.Providers'],
-      scripts=['scripts/tilestache-compose.py', 'scripts/tilestache-seed.py', 'scripts/tilestache-clean.py', 'scripts/tilestache-server.py', 'scripts/tilestache-render.py'],
-      data_files=[('share/tilestache', ['TileStache/Goodies/Providers/DejaVuSansMono-alphanumeric.ttf'])],
+      scripts=['scripts/tilestache-compose.py',
+               'scripts/tilestache-seed.py',
+               'scripts/tilestache-clean.py',
+               'scripts/tilestache-server.py',
+               'scripts/tilestache-render.py'],
+      data_files=[('share/tilestache',
+                  ['TileStache/Goodies/Providers/DejaVuSansMono-alphanumeric.ttf'])],
       download_url='http://tilestache.org/download/TileStache-%(version)s.tar.gz' % locals(),
       license='BSD')
